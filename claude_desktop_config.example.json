@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "bedrock-prompts": {
+      "command": "python",
+      "args": [
+        "/absolute/path/to/bedrock_prompts_mcp_server.py"
+      ],
+      "env": {
+        "AWS_REGION": "us-east-1",
+        "AWS_PROFILE": "default"
+      }
+    }
+  }
+}
