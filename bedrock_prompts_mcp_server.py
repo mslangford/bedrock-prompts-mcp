@@ -364,17 +364,6 @@ def invoke_prompt(
         
         # Extract model config
         model_id = variant.get("modelId", "")
-        
-        # If model_id is an ARN, extract the actual model name
-        if "inference-profile" in model_id or "arn:aws:bedrock" in model_id:
-            # Try to extract model from ARN, or fall back to default
-            if "claude-3-5-sonnet" in model_id:
-                model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
-            elif "claude-3" in model_id:
-                model_id = "anthropic.claude-3-sonnet-20240229-v1:0"
-            else:
-                model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
-        
         inference_config = variant.get("inferenceConfiguration", {}).get("text", {})
         additional_fields = variant.get("additionalModelRequestFields", {})
         
@@ -490,12 +479,6 @@ def invoke_prompt_stream(
         
         # Extract model config
         model_id = variant.get("modelId", "")
-        if "inference-profile" in model_id or "arn:aws:bedrock" in model_id:
-            if "claude-3-5-sonnet" in model_id:
-                model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
-            else:
-                model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"
-        
         inference_config = variant.get("inferenceConfiguration", {}).get("text", {})
         additional_fields = variant.get("additionalModelRequestFields", {})
         
